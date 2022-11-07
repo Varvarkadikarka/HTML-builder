@@ -7,7 +7,8 @@ const cssPath = path.join(__dirname, 'styles');
 const writeableStream  = fs.createWriteStream(path.join(bundlePath, 'bundle.css'));
 
 let promise = new Promise((resolve, reject) => {
-  resolve(fsPromises.readdir(path.join(cssPath), {withFileTypes: true}));
+  const readFiles = fsPromises.readdir(path.join(cssPath), {withFileTypes: true});
+  resolve(readFiles);
 });
 
 promise
